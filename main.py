@@ -3,12 +3,12 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import torch
 import numpy as np
-from model_def import NeuraNet
+from model_def import NeuralNet
 
 app = FastAPI()
 
 # 加载模型
-model = NeuraNet(input_dim=11)
+model = NeuralNet(input_dim=11)
 model.load_state_dict(torch.load("model.pt", map_location="cpu"))
 model.eval()
 
